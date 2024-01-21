@@ -1,7 +1,5 @@
 "use client";
-import React, { ChangeEvent, useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
-import { SearchContext } from "../context/SearchContext";
+import React, { ChangeEvent } from "react";
 
 const SearchBar = ({
   text,
