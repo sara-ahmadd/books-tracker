@@ -42,9 +42,8 @@ export type book = {
 };
 export type BooksArray = book[];
 export type userType = {
-  id?: string;
   _id?: string;
-  email?: string;
+  email: string;
   password?: string;
   image?: string;
   name?: string;
