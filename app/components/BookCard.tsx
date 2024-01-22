@@ -105,11 +105,11 @@ const BookCard = ({ item, page }: { item: book; page: string }) => {
           {showList && (
             <>
               {/* Drop down list containing the states of reading */}
-              <div className="bg-slate-50 w-44 rounded-md h-fit overflow-y-scroll flex flex-col justify-start items-start absolute top-full -left-12 gap-1 p-3">
+              <div className="bg-slate-50 w-44 rounded-md h-fit flex flex-col justify-start items-start absolute top-full -left-14 gap-1 p-1">
                 {readingStates?.map((state) => (
                   <button
                     key={state}
-                    className="w-full flex justify-start items-center h-fit px-3 text-black font-mono font-light text-base btn"
+                    className="w-full flex justify-start items-center  px-2 text-black font-mono font-light text-base hover:bg-slate-400 rounded-md h-8 transition-all"
                     onClick={async () => {
                       await updateBookStatus(
                         currUser,

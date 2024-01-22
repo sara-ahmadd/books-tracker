@@ -34,7 +34,7 @@ const MainContainer = () => {
           }
         });
     }
-  }, [searchText, refresh, currUser, currUser.books, handleBooks]);
+  }, [searchText, refresh, currUser, currUser.books]);
 
   return (
     <div className="w-11/12overflow-x-scroll h-500 mx-auto overflow-y-scroll relative  py-4">
