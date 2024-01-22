@@ -32,10 +32,12 @@ const Filters = () => {
           const books: book[] = res.data.books;
           const categs = books
             .map((x) => x.volumeInfo.categories)
-            .flat() as unknown as string[];
+            .flat()
+            .filter((c) => c && c.length > 0) as unknown as string[];
           const authors = books
             .map((x) => x.volumeInfo.authors)
-            .flat() as unknown as string[];
+            .flat()
+            .filter((c) => c && c.length > 0) as unknown as string[];
 
           const categSet = new Set(categs);
           const categories = Array.from(categSet);
@@ -78,7 +80,7 @@ const Filters = () => {
                 ? Status.map((x) => (
                     <button
                       key={x}
-                      className="w-full text-sm font-light flex justify-start items-start btn btn-sm"
+                      className="w-full text-sm font-light flex justify-start items-center btn btn-sm"
                       onClick={() => {
                         setShowList(false);
                         handleGroups([x]);
@@ -95,7 +97,7 @@ const Filters = () => {
                         setShowList(false);
                         handleGroups([x]);
                       }}
-                      className="w-full text-sm font-light flex justify-start items-start btn btn-sm border-b-2 "
+                      className="w-full text-sm font-light flex justify-start items-center btn btn-sm border-b-2 "
                     >
                       {x}
                     </button>
@@ -108,7 +110,7 @@ const Filters = () => {
                         setShowList(false);
                         handleGroups([x]);
                       }}
-                      className="w-full text-sm font-light flex justify-start items-start btn btn-sm border-b-2 "
+                      className="w-full text-sm font-light flex justify-start items-center btn btn-sm border-b-2 "
                     >
                       {x}
                     </button>
