@@ -17,7 +17,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${process.env.API_KEY_GOOGLE}`
+      `https://www.googleapis.com/books/v1/volumes?q=${searchText}&key=${process.env.NEXT_PUBLIC_API_KEY_GOOGLE}`
     )
       .then((response) => response.json())
       .then((result) => {
