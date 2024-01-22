@@ -38,7 +38,7 @@ export const options: NextAuthOptions = {
         if (!matchPassword) {
           throw new Error("password is not correct");
         }
-        return { ...user, id: user.email };
+        return user;
       },
     }),
   ],

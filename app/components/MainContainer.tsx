@@ -21,7 +21,7 @@ const MainContainer = () => {
   const currUser = useAppSelector((state) => state.userReducer) as userType;
   const refresh = useAppSelector((state) => state.refreshReducer);
   useEffect(() => {
-    if (currUser.email) {
+    if (currUser && currUser.email) {
       fetch(`${baseUrl}/api/user?email=${currUser.email}&q=${searchText}`, {
         cache: "no-store",
       })
@@ -34,7 +34,7 @@ const MainContainer = () => {
           }
         });
     }
-  }, [searchText, refresh, currUser.email, currUser.books, handleBooks]);
+  }, [searchText, refresh, currUser, currUser.books, handleBooks]);
 
   return (
     <div className="w-11/12overflow-x-scroll h-500 mx-auto overflow-y-scroll relative  py-4">
