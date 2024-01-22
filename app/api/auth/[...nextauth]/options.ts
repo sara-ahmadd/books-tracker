@@ -24,21 +24,28 @@ export const options: NextAuthOptions = {
           throw new Error("Email or password is missing.");
         }
         await connectDB();
-        const user = (await User.findOne({
+        const u = (await User.findOne({
           email: credentials.email,
         })) as userType;
 
-        if (!user) {
+        if (!u) {
           throw new Error(`User is not found...`);
         }
         const matchPassword = await compare(
           credentials.password,
-          user.password as string
+          u.password as string
         );
         if (!matchPassword) {
           throw new Error("password is not correct");
         }
-        return { ...user, id: user.email };
+        const user = {
+          id: u._id ?? u.email,
+          email: u.email,
+          name: u.name,
+          books: u.books,
+          password: u.password,
+        };
+        return user;
       },
     }),
   ],
