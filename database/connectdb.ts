@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const mongoDB_uri = process.env.NEXT_PUBLIC_MONGODB_URI;
+const mongoDB_uri = process.env.MONGODB_URI;
 export const connectDB = async () => {
   try {
     if (!mongoDB_uri) throw new Error("Mongodb Uri is missing...");
